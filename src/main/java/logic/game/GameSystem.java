@@ -60,6 +60,7 @@ public class GameSystem {
 		return gameEnd;
 	}
 
+
 	public void setGameEnd(boolean gameEnd) {
 		this.gameEnd = gameEnd;
 	}
@@ -89,5 +90,22 @@ public class GameSystem {
 		}
 		
 	}
+	public BaseUnit promote(BaseUnit baseUnit,int choice){
+
+		if(choice==0){
+			return new MeleeUnit(baseUnit.getColumn(), baseUnit.getRow(), baseUnit.isWhite(), baseUnit.getName());
+		}
+		else if(choice==1){
+			return new RangeUnit(baseUnit.getColumn(), baseUnit.getRow(), baseUnit.isWhite(), baseUnit.getName());
+		}
+		else if(choice==2){
+			return new FlyingUnit(baseUnit.getColumn(), baseUnit.getRow(), baseUnit.isWhite(), baseUnit.getName());
+		}
+		else{
+			return baseUnit;
+		}
+
+	}
+
 
 }
