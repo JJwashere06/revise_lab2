@@ -40,10 +40,16 @@ public class BaseUnit {
         }
     }
     public void attack(ArrayList<BaseUnit> targetPieces) {
-        //TO DO
-        for(BaseUnit b:targetPieces){
 
+        for(BaseUnit b:targetPieces){
+            if(!b.isFlying()){
+                if(b.getRow()==this.getRow() && b.getColumn()==this.getColumn()){
+                    System.out.println(this.getName()+" attacks "+b.getName());
+                    b.setHp(b.getHp()-this.getPower());
+                }
+            }
         }
+
     }
 
     //getter
