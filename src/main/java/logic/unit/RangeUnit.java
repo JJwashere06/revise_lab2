@@ -8,14 +8,20 @@ public class RangeUnit extends BaseUnit{
         this.setHp(2);
     }
     public void attack(ArrayList<BaseUnit> targetPieces){
+        int attackRow;
+        int attackColumn=this.getColumn();
+        if(this.isWhite()){ //above this unit
+            attackRow=this.getRow()-1;
+        }
+        else{ //below this unit
+            attackRow=this.getRow()+1;
+        }
         for(BaseUnit d:targetPieces){
-            if(d.isWhite()){ //above this unit
-
-            }
-            else{ //below this unit
-
+            if(d.getRow()==attackRow && d.getColumn()==attackColumn){
+                System.out.println(this.getName()+" attack "+d.getName());
+                d.setHp(d.getHp()-this.getPower());
             }
         }
-        System.out.println(this.getName()+" attacks "+);
+
     }
 }
